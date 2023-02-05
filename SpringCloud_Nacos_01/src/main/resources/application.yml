@@ -1,0 +1,18 @@
+server:
+  port: 8821
+spring:
+  application:
+    name: SpringCloudNaCos01
+  datasource:
+    url: jdbc:mysql://localhost:3306/users?serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8847
+      discovery:
+        cluster-name: HN #集群名字可以自定义
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

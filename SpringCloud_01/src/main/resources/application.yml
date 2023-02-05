@@ -1,0 +1,24 @@
+server:
+  port: 9800
+spring:
+  application:
+    name: SpringCloud_01
+  datasource:
+    url: jdbc:mysql://localhost:3306/users?serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+eureka:
+  client:
+    service-url: #eureka的地址信息
+      defaultZone: http://127.0.0.1:10086/eureka
+### 针对单个服务的 Ribbon 配置
+SpringCloud02:
+  ribbon:
+    # 基于配置文件形式的 针对单个服务的 Ribbon 负载均衡策略 RandomRule随机
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+ribbon:
+  eager-load:
+    enabled: true # 开启饥饿加载
+    clients: #指定饥饿加载服务器名称
+     - SpringCloud02
